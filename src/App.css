@@ -1,0 +1,51 @@
+.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.wrapper > h1:first-child {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 32px;
+    color: #FC9303;
+    background-color: rgba(254, 254, 254, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.nav-main ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-main ul li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(254, 254, 254, 0.4);
+    margin: 0 20px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.nav-main ul li:hover {
+    background-color: #29ABE2;
+}
+
+.nav-main ul li:hover * {
+    color: black;
+}
+
+.nav-main ul li > a, .nav-main ul li > button {
+    text-decoration: none;
+    color: #29ABE2;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 10px 100px;
+    transition: .3s;
+}
+
