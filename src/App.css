@@ -17,6 +17,7 @@
     list-style: none;
     display: flex;
     justify-content: center;
+    margin-bottom: 75px;
 }
 
 .nav-main ul li {

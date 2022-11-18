@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route, Link, Router} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 import './App.css';
 import {HomePage} from "./pages/HomePage";
@@ -17,7 +17,7 @@ export const App = () => (
             <button>Add word</button>
         </li>
         <li>
-          <Link to="test">Test</Link>
+          <Link to="/test">Test</Link>
         </li>
       </ul>
     </nav>
