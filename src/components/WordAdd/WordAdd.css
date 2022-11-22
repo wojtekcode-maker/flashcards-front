@@ -1,0 +1,73 @@
+.background {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(	231, 239, 197, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalWrapper {
+    width: 600px;
+    height: 600px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.modalWrapper button:nth-child(1) {
+    text-align: right;
+}
+ 
+.modalWrapper > * {
+    margin-bottom: 10px;
+}
+
+.modalBtn {
+    border: none;
+    font-size: 26px;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.modalBtn.close {
+    color: crimson;
+}
+
+.modalBtn.close:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.modalBtn.submit {
+    color: green;
+}
+
+.modalBtn.submit:hover {
+    background-color: green;
+    color: white;
+}
+
+.modalWrapper .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+* > input {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
