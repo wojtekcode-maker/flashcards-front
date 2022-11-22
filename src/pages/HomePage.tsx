@@ -52,7 +52,7 @@ export const HomePage = () => {
     <div className="words-wrap">
       {
           words.map((word): JSX.Element => {
-          return <Word  key={word._id} frontSite={word.meaning} backSite={word.translation}/>
+          return <Word  key={word._id} id={word._id} frontSite={word.meaning} backSite={word.translation} category={word.category}/>
         })
       }
     </div>

@@ -1,12 +1,14 @@
 import React, {Dispatch, FormEvent, SetStateAction, useState} from 'react';
 import axios from "axios";
-
-import './WordAdd.css';
 import {BACK_URL} from "../../config/config";
 
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
 interface Props {
+  id: string;
+  frontSite: string;
+  backSite: string;
+  category: string;
   closeModal: Dispatcher<boolean>;
 }
 
@@ -16,17 +18,17 @@ interface FormData {
   category?: string;
 }
 
-export const WordAdd = (props: Props) => {
+export const ModifyWordModal = (props: Props) => {
   const [data, setData] = useState<FormData>({
-    meaning: '',
-    translation: '',
-    category: 'All',
+    meaning: props.frontSite,
+    translation: props.backSite,
+    category: props.category,
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post(`${BACK_URL}words`, data);
+      await axios.patch(`${BACK_URL}words/${props.id}`, data);
       props.closeModal(false);
       window.location.reload();
     } catch (e) {
@@ -34,15 +36,28 @@ export const WordAdd = (props: Props) => {
     }
   };
 
+  const deleteOnClick = async(e: React.MouseEvent<HTMLElement>)  => {
+    e.preventDefault();
+    try {
+      await axios.delete(`${BACK_URL}words/${props.id}`);
+      props.closeModal(false);
+      window.location.reload();
+    } catch (e) {
+      return <h1>Cannot add new word. Try later.</h1>
+    }
+  }
+
   return (
     <div className="background">
       <div className="modalWrapper">
         <button onClick={() => props.closeModal(false)} className="modalBtn close">x</button>
         <div className="title">
-          <h1>Add The Word</h1>
+          <h1>Modify The Word</h1>
         </div>
         <div className="body">
-          <form onSubmit={e => {handleSubmit(e)}}>
+          <form onSubmit={e => {
+            handleSubmit(e)
+          }}>
             <label htmlFor="meaning">
               <p>Meaning:</p>
               <input
@@ -79,8 +94,10 @@ export const WordAdd = (props: Props) => {
                 name="category"
               />
             </label><br/>
+            <button className="modalBtn close" onClick={deleteOnClick}>Delete</button>
+            <button className="modalBtn submit">Save</button>
+            <br />
             <button onClick={() => props.closeModal(false)} className="modalBtn close">Cancel</button>
-            <button className="modalBtn submit">Add</button>
           </form>
         </div>
       </div>
