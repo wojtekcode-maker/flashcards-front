@@ -26,6 +26,4 @@ yarn-error.log*
 .gitignore
 .env
 
-src/config/firebase.config.ts
-
 
