@@ -5,6 +5,8 @@ import './App.css';
 import {HomePage} from "./pages/HomePage";
 import {TestPage} from "./pages/TestPage";
 import {WordAdd} from "./components/WordAdd/WordAdd";
+import {LoginPage} from "./pages/LoginPage";
+import {AuthContextProvider} from "./context/AuthContext";
 
 export const App = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -25,10 +27,13 @@ export const App = () => {
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/test" element={<TestPage/>}/>
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/test" element={<TestPage/>}/>
+          <Route path="/login" element={<LoginPage />}></Route>
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
     {openModal && <WordAdd closeModal={setOpenModal}/>}
   </div>
